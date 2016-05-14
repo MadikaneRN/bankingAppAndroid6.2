@@ -22,9 +22,11 @@ public class ClientRepositoryTest extends AndroidTestCase {
     public void testCreateReadUpdate() throws Exception
     {
         ClientRepository repo = new ClientRepositoryImpl(this.getContext());
+
+       // repo.deleteAll();
         // CREATE
         Client createEntity = new Client.Builder()
-                .idNo("9110123")
+                .idNo("911099")
                 .name("Willem")
                 .surName("Rothman")
                 .build();
@@ -54,7 +56,7 @@ public class ClientRepositoryTest extends AndroidTestCase {
 
         repo.update(updateEntity);
         Client newEntity = repo.findById(id);
-        Assert.assertEquals(TAG + "UPDATE ENTITY", "LOKI",newEntity.getName());
+        Assert.assertEquals(TAG + "UPDATE ENTITY", "Rothman",newEntity.getName());
 
 
         //DELTE ENTITY

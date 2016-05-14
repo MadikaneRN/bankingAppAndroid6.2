@@ -31,11 +31,11 @@ public class ClientRepositoryImpl extends SQLiteOpenHelper implements ClientRepo
 
     //Databse creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
-            +TABLE_NAME+ " ("
+            +TABLE_NAME + "("
             +COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
-            +COLUMN_ID_NO+ " TEXT NOT NULL , " //Unique also
-            +COLUMN_NAME+ " TEXT NOT NULL , "
-            +COLUMN_SURNAME+ " TEXT NOT NULL );";
+            +COLUMN_ID_NO + " TEXT NOT NULL , " //Unique also
+            +COLUMN_NAME + " TEXT NOT NULL , "
+            +COLUMN_SURNAME + " TEXT NOT NULL );";
 
 
     public ClientRepositoryImpl(Context context)

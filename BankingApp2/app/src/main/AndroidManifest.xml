@@ -21,6 +21,9 @@
         <service android:name=".services.airtime.impl.AirtimeServiceImpl">
 
         </service>
+        <service android:name=".services.login.impl.LoginServiceImpl">
+
+        </service>
 
     </application>
 
