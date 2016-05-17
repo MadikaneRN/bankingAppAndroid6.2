@@ -7,30 +7,61 @@
     android:fitsSystemWindows="true"
     tools:context="cput.ac.za.bankingapp.MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/view">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main" />
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
         android:id="@+id/button_readAll"
-        android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="92dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button_send"
+        android:id="@+id/button_send"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button_save"
+        android:id="@+id/button_save"
+        android:layout_above="@+id/button_send"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button_send"
+        android:layout_alignEnd="@+id/button_send" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button_delete"
+        android:id="@+id/button_delete"
+        android:layout_above="@+id/button_save"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button_save"
+        android:layout_alignEnd="@+id/button_save" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button_update"
+        android:id="@+id/button_update"
+        android:layout_above="@+id/button_delete"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/button_delete"
+        android:layout_alignEnd="@+id/button_delete" />
 
 </RelativeLayout>

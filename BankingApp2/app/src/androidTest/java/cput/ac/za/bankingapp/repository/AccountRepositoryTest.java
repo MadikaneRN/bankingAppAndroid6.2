@@ -58,6 +58,6 @@ public class AccountRepositoryTest extends AndroidTestCase{
         Assert.assertNull(TAG +"DELETE", deleteEntity);
 
 
-        repo.deleteAll();
+       // repo.deleteAll();
     }
 }

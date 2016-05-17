@@ -26,9 +26,9 @@ public class ClientRepositoryTest extends AndroidTestCase {
        // repo.deleteAll();
         // CREATE
         Client createEntity = new Client.Builder()
-                .idNo("911099")
-                .name("Willem")
-                .surName("Rothman")
+                .idNo("1991")
+                .name("Richard")
+                .surName("Madikane")
                 .build();
         Client insertedEntity = repo.save(createEntity);
         id = insertedEntity.getId();
@@ -51,12 +51,12 @@ public class ClientRepositoryTest extends AndroidTestCase {
         //UPDATE ENTITY
         Client updateEntity = new Client.Builder()
                 .copy(entity)
-                .name("Loki")
+                .name("Ntsikelelo")
                 .build();
 
         repo.update(updateEntity);
         Client newEntity = repo.findById(id);
-        Assert.assertEquals(TAG + "UPDATE ENTITY", "Rothman",newEntity.getName());
+        Assert.assertEquals(TAG + "UPDATE ENTITY", "Ntsikelelo",newEntity.getName());
 
 
         //DELTE ENTITY
@@ -64,7 +64,7 @@ public class ClientRepositoryTest extends AndroidTestCase {
         Client deleteEntity = repo.findById(id);
         Assert.assertNull(TAG +"DELETE", deleteEntity);
 
-        repo.deleteAll();
+        //repo.deleteAll();
 
     }
 

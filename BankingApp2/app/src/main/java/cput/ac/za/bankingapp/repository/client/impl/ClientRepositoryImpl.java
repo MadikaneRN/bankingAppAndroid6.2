@@ -72,7 +72,7 @@ public class ClientRepositoryImpl extends SQLiteOpenHelper implements ClientRepo
             final  Client client = new Client.Builder()
                     .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                     .idNo(cursor.getString(cursor.getColumnIndex(COLUMN_ID_NO)))
-                    .name(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
+                    .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                     .surName(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
                     .build();
             return client;
@@ -151,7 +151,7 @@ public class ClientRepositoryImpl extends SQLiteOpenHelper implements ClientRepo
              final Client client = new Client.Builder()
                      .id(cursor.getLong(cursor.getColumnIndex(COLUMN_ID)))
                      .idNo(cursor.getString(cursor.getColumnIndex(COLUMN_ID_NO)))
-                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
+                     .name(cursor.getString(cursor.getColumnIndex(COLUMN_NAME)))
                      .surName(cursor.getString(cursor.getColumnIndex(COLUMN_SURNAME)))
                      .build();
                     clients.add(client);
