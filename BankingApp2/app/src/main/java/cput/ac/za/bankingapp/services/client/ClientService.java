@@ -10,6 +10,6 @@ import cput.ac.za.bankingapp.domain.Client;
 public interface ClientService {
 
     void addClient(Context context, Client client);
-    //void updateClient(Context context, Business client);
-    //void deleteClient(Context context, Business client);
+    void updateClient(Context context, Client client);
+
 }

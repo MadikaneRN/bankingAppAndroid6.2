@@ -20,124 +20,53 @@ import cput.ac.za.bankingapp.services.login.impl.LoginServiceImpl;
  */
 public class LoginSerivceTest extends AndroidTestCase {
 
-    private LoginServiceImpl activateLoginService;
+
+    private LoginService loginService;
     private boolean isBound;
-    private Long id;
 
     @Override
-    public void setUp() throws Exception {
+    public void setUp() throws Exception
+    {
         super.setUp();
-        Intent intent = new Intent(this.getContext(), LoginServiceImpl.class);
-        this.getContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this.getContext(),LoginServiceImpl.class);
+        this.getContext().bindService(intent,connection,Context.BIND_AUTO_CREATE);
+
 
     }
 
-
-
     public ServiceConnection connection = new ServiceConnection() {
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-
-            LoginServiceImpl.ActivateLoginServiceLocalBinder binder
-                    = (LoginServiceImpl.ActivateLoginServiceLocalBinder)service;
-            activateLoginService = binder.getService();
-
+        public void onServiceConnected(ComponentName componentName, IBinder service)
+        {
+            LoginServiceImpl.RetrieveAccountInfoLocalBinder binder
+                    = (LoginServiceImpl.RetrieveAccountInfoLocalBinder)service;
+            loginService = binder.getService();
             isBound = true;
-
         }
 
+
         @Override
-        public void onServiceDisconnected(ComponentName name) {
+        public void onServiceDisconnected(ComponentName componentName) {
 
             isBound = false;
 
         }
     };
 
-    public void loginReset() throws Exception
+
+
+    public void testLogin()throws Exception
     {
-        LoginRepository repo =  new LoginRepositoryImpl(this.getContext());
-        // CREATE
-        Login createEntity = new Login.Builder()
-                .passWord("DarthVader")
-                .userName("LukeKram")
-                .build();
-        Login insertedEntity = repo.save(createEntity);
-        id = insertedEntity.getId();
-
-    }
-
-    public void testActivateAccount() throws Exception {
-
-
-
-        String activate = activateLoginService.activateLoginAccount("LukeKram", "DarthVader");
-        Assert.assertEquals("ACTIVATED", activate);
-
-    }
-
-
-    /*
-    public void testDeactivatedAccount() throws Exception {
-
-        CreateTables createTables = new CreateTables(this.getContext());
-        createTables.resetDatabase();
-        createTables.createTables();
-
-        activateLoginService.activateLoginAccount("LukeKram", "DarthVader");
-
-        Boolean deactivated = activateLoginService.deactivateAccount();
-        Assert.assertTrue("NOTACTIVATED", deactivated);
-
-    }
-
-    */
-    /*
-    private LoginService loginService;
-    private boolean isbound;
-
-
-    public void setUp() throws Exception {
-        super.setUp();
-        Intent intent = new Intent(this.getContext(), LoginServiceImpl.class);
-        this.getContext().bindService(intent, connection, Context.BIND_AUTO_CREATE);
-
-    }
-
-
-    public ServiceConnection connection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            LoginServiceImpl.RetrieveAccountInfoLocalBinder binder
-                    = (LoginServiceImpl.RetrieveAccountInfoLocalBinder) service;
-            loginService = binder.getService();
-
-            isbound = true;
-
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-            isbound = false;
-
-        }
-    };
-
-
-    public void testLogin() throws Exception {
         Login login = new Login.Builder()
-                .passWord("eminem")
-                .userName("madikane")
+                .passWord("123")
+                .userName("Madikane")
                 .id(new Long(2))
                 .build();
+
         boolean isValid = loginService.isValiduser(login);
-
-        Assert.assertTrue(isValid);
-
-
+        Assert.assertFalse(isValid);
     }
 
-    */
+
 
 }

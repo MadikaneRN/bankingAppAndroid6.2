@@ -67,6 +67,7 @@ public class ClientServiceImpl extends IntentService implements ClientService {
         }
     }
 
+
     @Override
     public void addClient(Context context, Client client)
      {
@@ -75,6 +76,17 @@ public class ClientServiceImpl extends IntentService implements ClientService {
         intent.putExtra(EXTRA_ADD, client);
         context.startService(intent);
      }
+
+
+    @Override
+    public void updateClient(Context context,Client client)
+    {
+        Intent intent = new Intent(context,ClientServiceImpl.class);
+        intent.setAction(ACTION_UPDATE);
+        intent.putExtra(EXTRA_UPDATE,client);
+        context.startService(intent);
+
+    }
 
 
 

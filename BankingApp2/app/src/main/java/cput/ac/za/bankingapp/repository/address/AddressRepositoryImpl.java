@@ -37,7 +37,7 @@ public class AddressRepositoryImpl extends SQLiteOpenHelper implements  AddressR
     // Database creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
             + TABLE_NAME + "("
-            + COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
+            + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_STREET_NAME + " TEXT NOT NULL , "
             + COLUMN_CITY + " TEXT NOT NULL , "
             + COLUMN_POSTAL_CODE + " TEXT NOT NULL );" ;
@@ -62,7 +62,7 @@ public class AddressRepositoryImpl extends SQLiteOpenHelper implements  AddressR
                         COLUMN_STREET_NAME,
                         COLUMN_CITY,
                         COLUMN_POSTAL_CODE },
-                COLUMN_ID + " =? ",
+                COLUMN_ID + " =?",
                 new String[]{String.valueOf(id)},
                 null,null,null,null);
         if(cursor.moveToFirst())

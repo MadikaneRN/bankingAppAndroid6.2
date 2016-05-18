@@ -23,21 +23,20 @@ public class LoginRepositoryImpl extends SQLiteOpenHelper implements LoginReposi
     private static final String TABLE_NAME = "login";
     private SQLiteDatabase db;
 
-    private Long id;
-    private String userName;
-    private String passWord;
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_USER_NAME = "userName";
     public static final String COLUMN_PASS_WORD = "passWord";
 
 
+
+
     //Databse creation sql statement
     private static final String DATABASE_CREATE = " CREATE TABLE "
-            +TABLE_NAME+ " ("
+            +TABLE_NAME + " ("
             +COLUMN_ID + " INTEGER  PRIMARY KEY AUTOINCREMENT, "
-            +COLUMN_USER_NAME+ " TEXT NOT NULL , "//unique also
-            +COLUMN_PASS_WORD+ " TEXT NOT NULL );";
+            +COLUMN_USER_NAME + " TEXT NOT NULL , "//unique also
+            +COLUMN_PASS_WORD + " TEXT NOT NULL );";
 
 
 
@@ -89,7 +88,7 @@ public class LoginRepositoryImpl extends SQLiteOpenHelper implements LoginReposi
         values.put(COLUMN_USER_NAME,entity.getUserName());
         values.put(COLUMN_PASS_WORD,entity.getPassWord());
 
-        long id = db.insertOrThrow(TABLE_NAME,null,values);
+        long id = db.insertOrThrow(TABLE_NAME, null, values);
 
         Login insertedEntity = new Login.Builder()
                 .copy(entity)
@@ -107,10 +106,11 @@ public class LoginRepositoryImpl extends SQLiteOpenHelper implements LoginReposi
         values.put(COLUMN_USER_NAME, entity.getUserName());
         values.put(COLUMN_PASS_WORD, entity.getPassWord());
 
-        db.update(TABLE_NAME,values,COLUMN_ID +" =?",new String[]{String.valueOf(entity.getId())});
+        db.update(TABLE_NAME,values,COLUMN_ID +" =? ",new String[]{String.valueOf(entity.getId())});
 
         return entity;
     }
+
 
     @Override
     public Login delete(Login entity) {
@@ -121,7 +121,6 @@ public class LoginRepositoryImpl extends SQLiteOpenHelper implements LoginReposi
 
         return entity;
     }
-
     @Override
     public Set<Login> findAll() {
         SQLiteDatabase db = this.getReadableDatabase();

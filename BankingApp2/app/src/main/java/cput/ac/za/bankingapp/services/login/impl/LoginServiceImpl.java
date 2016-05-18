@@ -18,15 +18,47 @@ import cput.ac.za.bankingapp.services.login.LoginService;
 public class LoginServiceImpl extends Service implements LoginService{
 
 
-    private final IBinder localBinder = new ActivateLoginServiceLocalBinder();
-    private LoginRepository loginRepository;
-
+    private IBinder localBinder = new RetrieveAccountInfoLocalBinder();
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return localBinder;
     }
+
+    @Override
+    public boolean isValiduser(Login login) {
+        LoginRepository loginRepository = new LoginRepositoryImpl(getBaseContext());
+        Login login1 = null;
+        if(login1 == null)
+            return false;
+        else
+            return true;
+    }
+
+
+
+
+    public class RetrieveAccountInfoLocalBinder extends Binder {
+        public LoginServiceImpl getService()
+        {
+            return  LoginServiceImpl.this;
+        }
+    }
+
+
+    /*
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return localBinder;
+    }
+
+
+    //private final IBinder localBinder = new ActivateLoginServiceLocalBinder();
+    //private LoginRepository loginRepository;
+
+
 
     public class ActivateLoginServiceLocalBinder extends Binder {
 
@@ -79,38 +111,7 @@ public class LoginServiceImpl extends Service implements LoginService{
         return loginRepository.save(login);
     }
 
-
-    /*
-    private IBinder localBinder = new RetrieveAccountInfoLocalBinder();
-
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return localBinder;
-    }
-
-    @Override
-    public boolean isValiduser(Login login) {
-        LoginRepository loginRepository = new LoginRepositoryImpl(getBaseContext());
-        Login login1 = null;
-        if(login1 == null)
-            return false;
-        else
-            return true;
-    }
-
-
-
-
-    public class RetrieveAccountInfoLocalBinder extends Binder {
-        public LoginServiceImpl getService()
-        {
-            return  LoginServiceImpl.this;
-        }
-    }
-
     */
-
 
 
 

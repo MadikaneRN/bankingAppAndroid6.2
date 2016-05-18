@@ -7,14 +7,6 @@ import cput.ac.za.bankingapp.domain.Login;
  */
 public interface LoginService {
 
-    String activateLoginAccount(String username, String password);
-
-    boolean isAccountActivated();
-    boolean deactivateAccount();
-
-
-
-    /*
     boolean isValiduser(Login login);
-    */
+
 }

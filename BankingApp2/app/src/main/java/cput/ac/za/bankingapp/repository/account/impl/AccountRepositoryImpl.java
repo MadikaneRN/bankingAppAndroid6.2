@@ -25,24 +25,18 @@ public class AccountRepositoryImpl extends SQLiteOpenHelper implements AccountRe
     private static final String TABLE_NAME = "account";
     private SQLiteDatabase db;
 
-    /*
-    private Long id;
-    private String accNo;
-    private double balance;
-    private String accountType;
-     *  */
 
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_ACCNO = "accNo";
     public static final String COLUMN_BALANCE ="balance";
     public static final String COLUMN_ACCOUNT_TYPE ="accountType";
 
-    private static final String DATABASE_CREATE = " CREATE "
-            + TABLE_NAME + "("
-            + COLUMN_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
+    private static final String DATABASE_CREATE = " CREATE TABLE"
+            +TABLE_NAME + "("
+            +COLUMN_ID +  " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + COLUMN_ACCNO + " TEXT NOT NULL , "
             +COLUMN_BALANCE + " REAL NOT NULL , "
-            +COLUMN_ACCOUNT_TYPE + " TEXT NOT NULL);";
+            +COLUMN_ACCOUNT_TYPE + " TEXT NOT NULL );";
 
     public AccountRepositoryImpl(Context context)
     {
